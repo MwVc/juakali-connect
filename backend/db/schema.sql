@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS providers;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS services;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -19,5 +20,16 @@ CREATE TABLE providers (
     phone_number VARCHAR(20),
     availability BOOLEAN DEFAULT true,
     rating NUMERIC(2,1) DEFAULT 0.0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS services(
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    title TEXT NOT NULL,
+    description TEXT,
+    category TEXT,
+    location TEXT,
+    phone TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
