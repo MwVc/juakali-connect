@@ -2,7 +2,7 @@ const db = require("../db");
 
 const createService = async (req, res) => {
   const { title, description, category, location, phone } = req.body;
-  const userId = req.body.id; // added by auth middleware
+  const userId = req.user.id; // added by auth middleware
 
   try {
     const result = await db.query(
