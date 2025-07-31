@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server"
+    "server": "nodemon app"
   },
   "keywords": [],
   "author": "Victor Mwadime <victormwadime@gmail.com>",
